@@ -3,25 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule }   from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
-import { UserTileComponent } from './components/user-tile/user-tile.component';
-
-import {MatListModule} from '@angular/material/list';
-
+import { UsersPageModule } from './components/users-page/users-page.module';
+import { RolesPageModule } from './components/roles-page/roles-page.module';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    UserTileComponent
-    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    MatListModule,
+    UsersPageModule,
+    RolesPageModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

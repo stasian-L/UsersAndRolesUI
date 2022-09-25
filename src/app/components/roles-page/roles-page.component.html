@@ -1,0 +1,16 @@
+<mat-nav-list>
+  <mat-form-field class="form-field" appearance="fill">
+    <mat-label> Role name</mat-label>
+    <input matInput type="text" [value]="role.name" (input)="onRoleInputChange($event)">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="createEditRole()" [disabled]="!role.name">
+    {{(role.id==='')? 'Add Role': 'Edit Role'}}
+  </button>
+
+  <a mat-list-item *ngFor="let role of roles" (click)="populateInput(role)">
+    <span matLine>{{role.name}}</span>
+    <button mat-icon-button (click)="onRemove(role.id); $event.stopPropagation()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </a>
+</mat-nav-list>

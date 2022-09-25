@@ -1,0 +1,18 @@
+<mat-nav-list>
+    <button mat-raised-button color="primary" (click)="route()">
+        Add User
+    </button>
+
+    <!-- <div class="container" *ngFor="let user of users"> -->
+        <mat-list-item *ngFor="let user of users" (click)="route(user)">
+            <span matLine>{{user.name}}</span>
+            <span matLine>{{getRoles(user)}}</span>    
+            <button mat-icon-button (click)="onRemove(user.id!); $event.stopPropagation()">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </mat-list-item>
+    <!-- </div> -->
+
+
+
+</mat-nav-list>

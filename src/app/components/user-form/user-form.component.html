@@ -1,0 +1,25 @@
+<ng-container *ngIf="form">
+    <div class="container">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="standard">
+                <mat-label>Name</mat-label>
+                <input matInput maxlength="32" placeholder="Type name" formControlName="name" #nameInput>
+                <mat-hint>Min character 6: {{nameInput.value.length}}/6</mat-hint>
+                <mat-error *ngIf="form.controls['name'].errors?.['required']">Name is required</mat-error>
+                <mat-error *ngIf="form.controls['name'].errors?.['minlength']">
+                    Please enter more than 6 characters
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Roles</mat-label>
+                <mat-select formControlName="roles" multiple>
+                    <mat-option *ngFor="let role of allRoles" [value]="role.id">{{role.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Submit</button>
+        </form>
+
+    </div>
+</ng-container>
